@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discount Beds Belfast – Premium Beds & Mattresses</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a1f3c;
+    --gold: #c9973a;
+    --gold-light: #e8b55a;
+    --cream: #faf7f2;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --light-gray: #f3f0eb;
+    --border: #e5ddd0;
+    --red: #c0392b;
+    --green: #27ae60;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--navy); }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+    padding: 0 2rem;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,.3);
+  }
+  .nav-top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .8rem 0; border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+  .logo-icon {
+    width: 42px; height: 42px; background: var(--gold);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+  }
+  .logo-text { color: white; }
+  .logo-text strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.1rem; }
+  .logo-text span { font-size: .7rem; color: var(--gold-light); letter-spacing: .08em; text-transform: uppercase; }
+  .nav-actions { display: flex; align-items: center; gap: 1rem; }
+  .nav-search {
+    display: flex; align-items: center; background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.15); border-radius: 6px; padding: .4rem .8rem; gap: .5rem;
+  }
+  .nav-search input { background: none; border: none; outline: none; color: white; width: 180px; font-size: .85rem; }
+  .nav-search input::placeholder { color: rgba(255,255,255,.4); }
+  .cart-btn {
+    background: var(--gold); color: white; border: none; padding: .5rem 1rem;
+    border-radius: 6px; cursor: pointer; font-size: .85rem; display: flex; align-items: center; gap: .4rem;
+    font-weight: 600; transition: background .2s;
+  }
+  .cart-btn:hover { background: var(--gold-light); }
+  .cart-badge {
+    background: var(--red); color: white; border-radius: 50%;
+    width: 18px; height: 18px; font-size: .7rem; display: flex; align-items: center; justify-content: center;
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: .2rem; padding: .5rem 0; overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-links::-webkit-scrollbar { display: none; }
+  .nav-link {
+    color: rgba(255,255,255,.8); text-decoration: none; font-size: .8rem; padding: .4rem .75rem;
+    border-radius: 5px; white-space: nowrap; transition: all .2s; font-weight: 500;
+  }
+  .nav-link:hover, .nav-link.active { background: rgba(201,151,58,.2); color: var(--gold-light); }
+  .nav-link.special { color: var(--gold-light); font-weight: 600; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, #2d3561 50%, #1a2850 100%);
+    padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(201,151,58,.15) 0%, transparent 60%);
+  }
+  .hero-badge {
+    display: inline-block; background: rgba(201,151,58,.2); border: 1px solid var(--gold);
+    color: var(--gold-light); padding: .3rem .9rem; border-radius: 20px;
+    font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem);
+    color: white; line-height: 1.2; margin-bottom: 1rem; position: relative;
+  }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero p { color: rgba(255,255,255,.7); max-width: 500px; margin: 0 auto 2rem; font-size: 1rem; line-height: 1.6; }
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; }
+  .btn-primary {
+    background: var(--gold); color: white; padding: .8rem 2rem; border-radius: 8px;
+    text-decoration: none; font-weight: 600; font-size: .9rem; transition: all .2s;
+    border: 2px solid var(--gold);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,151,58,.4); }
+  .btn-outline {
+    background: transparent; color: white; padding: .8rem 2rem; border-radius: 8px;
+    text-decoration: none; font-weight: 600; font-size: .9rem; transition: all .2s;
+    border: 2px solid rgba(255,255,255,.3);
+  }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,.1); }
+  .hero-stats {
+    display: flex; gap: 3rem; justify-content: center; margin-top: 3rem;
+    flex-wrap: wrap; position: relative;
+  }
+  .stat { text-align: center; }
+  .stat strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); }
+  .stat span { font-size: .75rem; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .06em; }
+
+  /* ── SECTIONS ── */
+  section { padding: 4rem 2rem; }
+  .section-header { text-align: center; margin-bottom: 2.5rem; }
+  .section-label {
+    display: inline-block; color: var(--gold); font-size: .75rem; font-weight: 600;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: .6rem;
+  }
+  .section-header h2 {
+    font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--navy); margin-bottom: .6rem;
+  }
+  .section-header p { color: var(--gray); max-width: 500px; margin: 0 auto; }
+
+  /* ── CATEGORIES ── */
+  .categories { background: var(--white); }
+  .cat-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem; max-width: 1100px; margin: 0 auto;
+  }
+  .cat-card {
+    background: var(--cream); border: 1.5px solid var(--border); border-radius: 12px;
+    padding: 1.5rem 1rem; text-align: center; cursor: pointer; transition: all .25s;
+    text-decoration: none; color: var(--navy);
+  }
+  .cat-card:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,.08); }
+  .cat-card.active { border-color: var(--gold); background: #fff8ee; }
+  .cat-icon { font-size: 2.2rem; margin-bottom: .6rem; }
+  .cat-card strong { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .2rem; }
+  .cat-card span { font-size: .72rem; color: var(--gray); }
+
+  /* ── PRODUCT GRID ── */
+  .shop { background: var(--cream); }
+  .shop-controls {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;
+    max-width: 1200px; margin-left: auto; margin-right: auto;
+  }
+  .filter-row { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .filter-btn {
+    background: var(--white); border: 1.5px solid var(--border); color: var(--navy);
+    padding: .4rem .9rem; border-radius: 20px; font-size: .8rem; cursor: pointer;
+    transition: all .2s; font-family: 'DM Sans', sans-serif; font-weight: 500;
+  }
+  .filter-btn:hover, .filter-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
+  .sort-select {
+    background: var(--white); border: 1.5px solid var(--border); color: var(--navy);
+    padding: .4rem .8rem; border-radius: 8px; font-size: .82rem; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; outline: none;
+  }
+  .product-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem; max-width: 1200px; margin: 0 auto;
+  }
+  .product-card {
+    background: var(--white); border: 1.5px solid var(--border); border-radius: 14px;
+    overflow: hidden; transition: all .25s; cursor: pointer;
+  }
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 12px 35px rgba(0,0,0,.1); border-color: var(--gold); }
+  .product-img {
+    height: 200px; background: var(--light-gray); display: flex; align-items: center;
+    justify-content: center; font-size: 4rem; position: relative; overflow: hidden;
+  }
+  .product-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,.04));
+  }
+  .badge {
+    position: absolute; top: .8rem; left: .8rem;
+    padding: .25rem .6rem; border-radius: 5px; font-size: .72rem; font-weight: 700; z-index: 1;
+  }
+  .badge-sale { background: var(--red); color: white; }
+  .badge-new { background: var(--green); color: white; }
+  .badge-hot { background: var(--gold); color: white; }
+  .product-info { padding: 1.1rem; }
+  .product-info h3 { font-size: .95rem; font-weight: 600; margin-bottom: .3rem; line-height: 1.3; }
+  .product-meta { font-size: .78rem; color: var(--gray); margin-bottom: .6rem; }
+  .stars { color: var(--gold); font-size: .8rem; }
+  .price-row { display: flex; align-items: center; gap: .5rem; margin-bottom: .8rem; }
+  .price { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--navy); }
+  .price-old { font-size: .85rem; color: var(--gray); text-decoration: line-through; }
+  .add-btn {
+    width: 100%; background: var(--navy); color: white; border: none; padding: .6rem;
+    border-radius: 8px; font-size: .85rem; font-weight: 600; cursor: pointer;
+    transition: background .2s; font-family: 'DM Sans', sans-serif;
+  }
+  .add-btn:hover { background: var(--gold); }
+
+  /* ── FEATURES STRIP ── */
+  .features-strip {
+    background: var(--navy); padding: 2.5rem 2rem;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;
+  }
+  .feature { display: flex; align-items: flex-start; gap: 1rem; }
+  .feature-icon {
+    width: 48px; height: 48px; background: rgba(201,151,58,.2); border-radius: 10px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0;
+  }
+  .feature-text strong { display: block; color: white; font-size: .9rem; margin-bottom: .2rem; }
+  .feature-text span { color: rgba(255,255,255,.5); font-size: .78rem; }
+
+  /* ── SPECIAL OFFERS ── */
+  .offers { background: var(--white); }
+  .offer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+  .offer-card {
+    background: linear-gradient(135deg, var(--navy), #2d3561); border-radius: 16px;
+    padding: 2rem; color: white; position: relative; overflow: hidden;
+  }
+  .offer-card::before {
+    content: ''; position: absolute; right: -20px; top: -20px;
+    width: 120px; height: 120px; border-radius: 50%; background: rgba(201,151,58,.15);
+  }
+  .offer-card h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: .5rem; }
+  .offer-card p { color: rgba(255,255,255,.6); font-size: .85rem; margin-bottom: 1.2rem; line-height: 1.5; }
+  .offer-price { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 1rem; }
+  .offer-price small { font-size: 1rem; }
+  .offer-btn {
+    display: inline-block; background: var(--gold); color: white; padding: .6rem 1.4rem;
+    border-radius: 8px; text-decoration: none; font-size: .85rem; font-weight: 600; transition: background .2s;
+  }
+  .offer-btn:hover { background: var(--gold-light); }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--cream); }
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto; }
+  .testi-card {
+    background: var(--white); border: 1.5px solid var(--border); border-radius: 14px; padding: 1.5rem;
+  }
+  .testi-stars { color: var(--gold); font-size: .9rem; margin-bottom: .8rem; }
+  .testi-text { font-size: .9rem; line-height: 1.6; color: #444; margin-bottom: 1rem; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: .8rem; }
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%; background: var(--navy);
+    display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: .9rem;
+  }
+  .testi-name strong { display: block; font-size: .85rem; }
+  .testi-name span { font-size: .75rem; color: var(--gray); }
+
+  /* ── CONTACT / ABOUT ── */
+  .about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto; align-items: center; }
+  .about-img {
+    background: linear-gradient(135deg, var(--navy), #2d3561); border-radius: 16px;
+    height: 350px; display: flex; align-items: center; justify-content: center; font-size: 5rem;
+  }
+  .about-content h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; color: var(--navy); }
+  .about-content p { color: var(--gray); line-height: 1.7; margin-bottom: 1rem; font-size: .92rem; }
+  .info-row { display: flex; align-items: center; gap: .7rem; margin-bottom: .6rem; }
+  .info-row .icon { font-size: 1.1rem; }
+  .info-row span { font-size: .88rem; color: var(--navy); }
+
+  /* ── CART SIDEBAR ── */
+  .cart-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 200;
+    display: none; opacity: 0; transition: opacity .3s;
+  }
+  .cart-overlay.open { display: block; opacity: 1; }
+  .cart-sidebar {
+    position: fixed; right: -420px; top: 0; height: 100%; width: 400px;
+    background: white; z-index: 201; box-shadow: -5px 0 30px rgba(0,0,0,.15);
+    transition: right .3s; display: flex; flex-direction: column;
+  }
+  .cart-sidebar.open { right: 0; }
+  .cart-header {
+    padding: 1.5rem; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cart-header h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; }
+  .close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray); }
+  .cart-items { flex: 1; overflow-y: auto; padding: 1rem; }
+  .cart-item { display: flex; gap: 1rem; padding: .8rem; border-bottom: 1px solid var(--border); align-items: center; }
+  .cart-item-img { width: 60px; height: 60px; background: var(--light-gray); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; flex-shrink: 0; }
+  .cart-item-info { flex: 1; }
+  .cart-item-info strong { display: block; font-size: .88rem; margin-bottom: .2rem; }
+  .cart-item-info span { font-size: .78rem; color: var(--gray); }
+  .cart-item-price { font-weight: 700; color: var(--navy); font-size: .92rem; }
+  .remove-item { background: none; border: none; color: var(--red); cursor: pointer; font-size: 1.1rem; }
+  .cart-footer { padding: 1.5rem; border-top: 1px solid var(--border); }
+  .cart-total { display: flex; justify-content: space-between; margin-bottom: 1rem; font-weight: 700; font-size: 1.1rem; }
+  .checkout-btn {
+    width: 100%; background: var(--gold); color: white; border: none; padding: .9rem;
+    border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; transition: background .2s;
+  }
+  .checkout-btn:hover { background: var(--gold-light); }
+  .empty-cart { text-align: center; padding: 3rem; color: var(--gray); }
+  .empty-cart .icon { font-size: 3rem; display: block; margin-bottom: 1rem; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 300;
+    display: none; align-items: center; justify-content: center; padding: 1rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: white; border-radius: 16px; max-width: 650px; width: 100%;
+    max-height: 90vh; overflow-y: auto; padding: 2rem; position: relative;
+  }
+  .modal-img { width: 100%; height: 220px; background: var(--light-gray); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 5rem; margin-bottom: 1.5rem; }
+  .modal h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: .5rem; }
+  .modal-meta { color: var(--gray); font-size: .85rem; margin-bottom: 1rem; }
+  .modal-price { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--navy); margin-bottom: 1rem; }
+  .modal-desc { color: #555; line-height: 1.7; margin-bottom: 1.5rem; font-size: .9rem; }
+  .size-btns { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .size-btn {
+    padding: .4rem .9rem; border: 1.5px solid var(--border); border-radius: 6px;
+    background: white; cursor: pointer; font-size: .82rem; font-family: 'DM Sans', sans-serif;
+    transition: all .2s;
+  }
+  .size-btn:hover, .size-btn.active { border-color: var(--navy); background: var(--navy); color: white; }
+  .modal-add-btn {
+    width: 100%; background: var(--gold); color: white; border: none; padding: .9rem;
+    border-radius: 10px; font-size: 1rem; font-weight: 700; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; transition: background .2s;
+  }
+  .modal-add-btn:hover { background: var(--gold-light); }
+  .close-modal { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--gray); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111827; color: rgba(255,255,255,.7); padding: 3rem 2rem 1.5rem;
+  }
+  .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+  .footer-col h4 { color: white; font-size: .95rem; margin-bottom: 1rem; font-weight: 600; }
+  .footer-col a { display: block; color: rgba(255,255,255,.5); text-decoration: none; font-size: .83rem; margin-bottom: .5rem; transition: color .2s; }
+  .footer-col a:hover { color: var(--gold-light); }
+  .footer-col p { font-size: .83rem; line-height: 1.6; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: .78rem; color: rgba(255,255,255,.3); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px);
+    background: var(--navy); color: white; padding: .8rem 1.5rem; border-radius: 10px;
+    font-size: .9rem; z-index: 500; transition: transform .3s; box-shadow: 0 5px 20px rgba(0,0,0,.3);
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ── PAGE TABS ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── ABOUT PAGE ── */
+  @media(max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+  }
+
+  /* ── CONTACT FORM ── */
+  .contact-section { background: var(--white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: .4rem; color: var(--navy); }
+  .form-control {
+    width: 100%; padding: .7rem 1rem; border: 1.5px solid var(--border); border-radius: 8px;
+    font-size: .88rem; font-family: 'DM Sans', sans-serif; outline: none; transition: border .2s;
+    background: var(--cream);
+  }
+  .form-control:focus { border-color: var(--gold); }
+  textarea.form-control { resize: vertical; min-height: 120px; }
+  .submit-btn {
+    background: var(--navy); color: white; border: none; padding: .8rem 2rem;
+    border-radius: 8px; font-size: .9rem; font-weight: 600; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; transition: background .2s;
+  }
+  .submit-btn:hover { background: var(--gold); }
+  @media(max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-top">
+    <a class="logo" href="#" onclick="showPage('home')">
+      <div class="logo-icon">🛏</div>
+      <div class="logo-text">
+        <strong>Discount Beds Belfast</strong>
+        <span>Belfast's Bed Specialists</span>
+      </div>
+    </a>
+    <div class="nav-actions">
+      <div class="nav-search">
+        <span>🔍</span>
+        <input type="text" placeholder="Search beds, mattresses...">
+      </div>
+      <button class="cart-btn" onclick="toggleCart()">
+        🛒 Cart <span class="cart-badge" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a class="nav-link special" href="#" onclick="showPage('home')">🏷 Special Offers</a>
+    <a class="nav-link" href="#" onclick="showPage('shop'); filterProducts('divan')">Divan Beds</a>
+    <a class="nav-link" href="#" onclick="showPage('shop'); filterProducts('wooden')">Wooden Beds</a>
+    <a class="nav-link" href="#" onclick="showPage('shop'); filterProducts('metal')">Metal Beds</a>
+    <a class="nav-link" href="#" onclick="showPage('shop'); filterProducts('mattress')">Mattresses</a>
+    <a class="nav-link" href="#" onclick="showPage('shop'); filterProducts('ottoman')">Ottoman Beds</a>
+    <a class="nav-link" href="#" onclick="showPage('shop'); filterProducts('bunk')">Bunk Beds</a>
+    <a class="nav-link" href="#" onclick="showPage('shop'); filterProducts('sofa')">Sofa Beds</a>
+    <a class="nav-link" href="#" onclick="showPage('shop'); filterProducts('headboard')">Headboards</a>
+    <a class="nav-link" href="#" onclick="showPage('about')">About Us</a>
+    <a class="nav-link" href="#" onclick="showPage('contact')">Contact</a>
+  </div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="page-home" class="page active">
+
+  <div class="hero">
+    <div class="hero-badge">⭐ Belfast's #1 Bed Store Since 2005</div>
+    <h1>Sleep Better.<br><em>Live Better.</em></h1>
+    <p>Northern Ireland's largest selection of beds, mattresses & bedroom furniture at unbeatable prices. Free delivery across Belfast.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-primary" onclick="showPage('shop')">Shop Now →</a>
+      <a href="#" class="btn-outline" onclick="showPage('contact')">Get in Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><strong>5,000+</strong><span>Happy Customers</span></div>
+      <div class="stat"><strong>500+</strong><span>Products</span></div>
+      <div class="stat"><strong>20yrs</strong><span>Experience</span></div>
+      <div class="stat"><strong>Free</strong><span>Belfast Delivery</span></div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="categories">
+    <div class="section-header">
+      <span class="section-label">Browse by Category</span>
+      <h2>What Are You Looking For?</h2>
+    </div>
+    <div class="cat-grid">
+      <a class="cat-card" href="#" onclick="showPage('shop');filterProducts('divan')"><div class="cat-icon">🛏</div><strong>Divan Beds</strong><span>42 products</span></a>
+      <a class="cat-card" href="#" onclick="showPage('shop');filterProducts('wooden')"><div class="cat-icon">🪵</div><strong>Wooden Beds</strong><span>28 products</span></a>
+      <a class="cat-card" href="#" onclick="showPage('shop');filterProducts('metal')"><div class="cat-icon">⚙️</div><strong>Metal Beds</strong><span>19 products</span></a>
+      <a class="cat-card" href="#" onclick="showPage('shop');filterProducts('mattress')"><div class="cat-icon">😴</div><strong>Mattresses</strong><span>55 products</span></a>
+      <a class="cat-card" href="#" onclick="showPage('shop');filterProducts('ottoman')"><div class="cat-icon">📦</div><strong>Ottoman Beds</strong><span>16 products</span></a>
+      <a class="cat-card" href="#" onclick="showPage('shop');filterProducts('bunk')"><div class="cat-icon">🏗️</div><strong>Bunk Beds</strong><span>12 products</span></a>
+      <a class="cat-card" href="#" onclick="showPage('shop');filterProducts('sofa')"><div class="cat-icon">🛋️</div><strong>Sofa Beds</strong><span>14 products</span></a>
+      <a class="cat-card" href="#" onclick="showPage('shop');filterProducts('headboard')"><div class="cat-icon">🖼️</div><strong>Headboards</strong><span>24 products</span></a>
+    </div>
+  </section>
+
+  <!-- FEATURES STRIP -->
+  <div class="features-strip">
+    <div class="feature"><div class="feature-icon">🚚</div><div class="feature-text"><strong>Free Belfast Delivery</strong><span>On all orders over £299</span></div></div>
+    <div class="feature"><div class="feature-icon">🏭</div><div class="feature-text"><strong>Direct from Manufacturer</strong><span>Best prices guaranteed</span></div></div>
+    <div class="feature"><div class="feature-icon">↩️</div><div class="feature-text"><strong>Easy Returns</strong><span>30-day hassle-free returns</span></div></div>
+    <div class="feature"><div class="feature-icon">💳</div><div class="feature-text"><strong>Finance Available</strong><span>0% interest options</span></div></div>
+  </div>
+
+  <!-- SPECIAL OFFERS -->
+  <section class="offers">
+    <div class="section-header">
+      <span class="section-label">Limited Time</span>
+      <h2>Special Offers</h2>
+      <p>Incredible deals on beds and mattresses across Belfast</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <h3>Summer Clearance</h3>
+        <p>Up to 50% off selected divan beds and mattresses. Stock limited — don't miss out!</p>
+        <div class="offer-price">From <small>£149</small></div>
+        <a href="#" class="offer-btn" onclick="showPage('shop');filterProducts('divan')">Shop Divans</a>
+      </div>
+      <div class="offer-card">
+        <h3>Bespoke Beds</h3>
+        <p>Custom upholstered beds made to your exact specifications. Choose your fabric, size & style.</p>
+        <div class="offer-price">From <small>£299</small></div>
+        <a href="#" class="offer-btn" onclick="showPage('shop')">Explore Bespoke</a>
+      </div>
+      <div class="offer-card">
+        <h3>Landlord Bundle</h3>
+        <p>Bulk buy discounts for landlords. Beds & mattresses supplied to your properties across NI.</p>
+        <div class="offer-price">Call Us</div>
+        <a href="#" class="offer-btn" onclick="showPage('contact')">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="section-header">
+      <span class="section-label">Customer Reviews</span>
+      <h2>What Belfast Thinks</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Absolutely brilliant service. Got a great deal on a king size divan and it was delivered within 3 days. The team were so helpful and friendly."</p>
+        <div class="testi-author"><div class="testi-avatar">SL</div><div class="testi-name"><strong>Sarah L.</strong><span>Belfast</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"Used them for my rental properties — great bulk pricing and really reliable delivery. Have used them three times now and will keep coming back."</p>
+        <div class="testi-author"><div class="testi-avatar">PM</div><div class="testi-name"><strong>Peter M.</strong><span>Newtownabbey</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The bespoke bed I ordered is stunning — exactly what I wanted. Quality is excellent and the price was far less than competitors. Highly recommend!"</p>
+        <div class="testi-author"><div class="testi-avatar">AK</div><div class="testi-name"><strong>Aoife K.</strong><span>Carrickfergus</span></div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- SHOP PAGE -->
+<div id="page-shop" class="page">
+  <div style="background:var(--navy);padding:2rem;text-align:center;">
+    <h1 style="font-family:'Playfair Display',serif;color:white;font-size:2rem;">Our <em style="color:var(--gold);font-style:normal;">Online Store</em></h1>
+    <p style="color:rgba(255,255,255,.6);margin-top:.5rem;">Browse our full range — order online for delivery across Belfast & NI</p>
+  </div>
+  <section class="shop">
+    <div class="shop-controls">
+      <div class="filter-row" id="filterBtns">
+        <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+        <button class="filter-btn" onclick="filterProducts('divan')">Divan Beds</button>
+        <button class="filter-btn" onclick="filterProducts('wooden')">Wooden Beds</button>
+        <button class="filter-btn" onclick="filterProducts('metal')">Metal Beds</button>
+        <button class="filter-btn" onclick="filterProducts('mattress')">Mattresses</button>
+        <button class="filter-btn" onclick="filterProducts('ottoman')">Ottoman</button>
+        <button class="filter-btn" onclick="filterProducts('bunk')">Bunk Beds</button>
+        <button class="filter-btn" onclick="filterProducts('sofa')">Sofa Beds</button>
+        <button class="filter-btn" onclick="filterProducts('headboard')">Headboards</button>
+      </div>
+      <select class="sort-select" onchange="sortProducts(this.value)">
+        <option value="default">Sort by: Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="rating">Top Rated</option>
+      </select>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="page-about" class="page">
+  <div style="background:var(--navy);padding:2rem;text-align:center;">
+    <h1 style="font-family:'Playfair Display',serif;color:white;font-size:2rem;">About <em style="color:var(--gold);font-style:normal;">Us</em></h1>
+  </div>
+  <section class="about">
+    <div class="about-grid">
+      <div class="about-img">🏪</div>
+      <div class="about-content">
+        <h2>Belfast's Bed Specialists</h2>
+        <p>Discount Beds Belfast has been supplying the finest beds and mattresses to families across Northern Ireland since 2005. Located at 8 Templemore Avenue in Belfast, we're proud to be one of Northern Ireland's most trusted furniture retailers.</p>
+        <p>Our showroom stocks over 500 products across all categories — from budget-friendly divan sets to luxurious bespoke upholstered beds. Every product is hand-selected for quality and value.</p>
+        <p>We also supply landlords, housing associations and developers with bulk orders at competitive trade prices.</p>
+        <div class="info-row"><span class="icon">📍</span><span>8 Templemore Avenue, Belfast BT5 4FP</span></div>
+        <div class="info-row"><span class="icon">📞</span><span>+44 28 90 453723 / 07543 986796</span></div>
+        <div class="info-row"><span class="icon">🕐</span><span>Mon–Sat: 10am–5pm</span></div>
+        <div class="info-row"><span class="icon">✉️</span><span>Discountbedsbelfast@yahoo.co.uk</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="page-contact" class="page">
+  <div style="background:var(--navy);padding:2rem;text-align:center;">
+    <h1 style="font-family:'Playfair Display',serif;color:white;font-size:2rem;">Get In <em style="color:var(--gold);font-style:normal;">Touch</em></h1>
+  </div>
+  <section class="contact-section">
+    <div class="contact-grid">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1rem;">Send Us a Message</h3>
+        <div class="form-group"><label>Full Name</label><input type="text" class="form-control" placeholder="Your name"></div>
+        <div class="form-group"><label>Email Address</label><input type="email" class="form-control" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Phone</label><input type="tel" class="form-control" placeholder="+44..."></div>
+        <div class="form-group"><label>Message</label><textarea class="form-control" placeholder="How can we help you?"></textarea></div>
+        <button class="submit-btn" onclick="showToast('Message sent! We\'ll be in touch soon.')">Send Message</button>
+      </div>
+      <div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1rem;">Visit Our Showroom</h3>
+        <div style="background:var(--light-gray);border-radius:12px;height:250px;display:flex;align-items:center;justify-content:center;font-size:3rem;margin-bottom:1.5rem;">🗺️</div>
+        <div class="info-row" style="margin-bottom:.8rem;"><span class="icon">📍</span><span>8 Templemore Avenue, Belfast BT5 4FP</span></div>
+        <div class="info-row" style="margin-bottom:.8rem;"><span class="icon">📞</span><span>+44 28 90 453723</span></div>
+        <div class="info-row" style="margin-bottom:.8rem;"><span class="icon">📱</span><span>07543 986796</span></div>
+        <div class="info-row" style="margin-bottom:.8rem;"><span class="icon">🕐</span><span>Monday – Saturday: 10am – 5pm</span></div>
+        <div class="info-row"><span class="icon">✉️</span><span>Discountbedsbelfast@yahoo.co.uk</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>🛒 Your Cart</h3>
+    <button class="close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="empty-cart"><span class="icon">🛏</span><p>Your cart is empty</p></div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total"><span>Total:</span><span id="cartTotal">£0</span></div>
+    <button class="checkout-btn" onclick="showToast('Checkout coming soon! Call us: 028 90 453723')">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal">
+    <button class="close-modal" onclick="closeModal()">✕</button>
+    <div class="modal-img" id="modalImg"></div>
+    <h2 id="modalTitle"></h2>
+    <p class="modal-meta" id="modalMeta"></p>
+    <div id="modalStars" class="stars" style="margin-bottom:.8rem;"></div>
+    <div class="modal-price" id="modalPrice"></div>
+    <p class="modal-desc" id="modalDesc"></p>
+    <div style="margin-bottom:.8rem;font-weight:600;font-size:.88rem;">Select Size:</div>
+    <div class="size-btns">
+      <button class="size-btn active" onclick="selectSize(this)">Single (3ft)</button>
+      <button class="size-btn" onclick="selectSize(this)">Small Double (4ft)</button>
+      <button class="size-btn" onclick="selectSize(this)">Double (4ft 6)</button>
+      <button class="size-btn" onclick="selectSize(this)">King (5ft)</button>
+      <button class="size-btn" onclick="selectSize(this)">Super King (6ft)</button>
+    </div>
+    <button class="modal-add-btn" onclick="addToCartFromModal()">Add to Cart</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✅ <span id="toastMsg"></span></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <h4>🛏 Discount Beds Belfast</h4>
+      <p>Belfast's most trusted bed and mattress store. Quality products at discount prices since 2005.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('shop')">Online Store</a>
+      <a href="#" onclick="showPage('about')">About Us</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="#" onclick="showPage('shop');filterProducts('divan')">Divan Beds</a>
+      <a href="#" onclick="showPage('shop');filterProducts('mattress')">Mattresses</a>
+      <a href="#" onclick="showPage('shop');filterProducts('ottoman')">Ottoman Beds</a>
+      <a href="#" onclick="showPage('shop');filterProducts('bunk')">Bunk Beds</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="#">📍 8 Templemore Ave, Belfast BT5 4FP</a>
+      <a href="#">📞 028 90 453723</a>
+      <a href="#">📱 07543 986796</a>
+      <a href="#">✉️ Discountbedsbelfast@yahoo.co.uk</a>
+      <a href="#">🕐 Mon–Sat: 10am–5pm</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Discount Beds Belfast. All rights reserved.</span>
+    <span>Accepted: 💳 Visa · MasterCard · PayPal · Cash</span>
+  </div>
+</footer>
+
+<script>
+  const products = [
+    { id:1, name:'Classic Divan Base + Mattress Set', cat:'divan', price:199, oldPrice:349, badge:'sale', icon:'🛏', rating:4.8, reviews:142, desc:'A superb entry-level divan set with sturdy base and comfortable bonnell spring mattress. Available in all standard UK sizes. Headboard included.'},
+    { id:2, name:'Luxury Fabric Divan Bed', cat:'divan', price:329, oldPrice:null, badge:'hot', icon:'🛏', rating:4.9, reviews:88, desc:'Premium fabric-wrapped divan base with luxury memory foam mattress. Drawer storage available. Wide range of fabric colours.'},
+    { id:3, name:'Sleigh Wooden Bed Frame', cat:'wooden', price:279, oldPrice:399, badge:'sale', icon:'🪵', rating:4.7, reviews:56, desc:'Elegant sleigh-style wooden bed frame crafted from solid pine. Timeless design suitable for any bedroom decor.'},
+    { id:4, name:'Solid Oak Bed Frame', cat:'wooden', price:449, oldPrice:null, badge:'new', icon:'🪵', rating:4.9, reviews:34, desc:'Handcrafted solid oak bed frame with dovetail joints. Built to last a lifetime. Available in natural or dark oak finish.'},
+    { id:5, name:'Industrial Metal Bed Frame', cat:'metal', price:149, oldPrice:199, badge:'sale', icon:'⚙️', rating:4.6, reviews:103, desc:'Stylish industrial-look metal frame with powder-coated finish. Easy assembly, extremely sturdy, suitable for all mattress types.'},
+    { id:6, name:'Brass Victorian Metal Bed', cat:'metal', price:299, oldPrice:null, badge:'new', icon:'⚙️', rating:4.8, reviews:27, desc:'Classic Victorian-inspired brass metal bed. A stunning centrepiece for traditional or eclectic bedrooms.'},
+    { id:7, name:'Pocket Sprung Mattress (1000)', cat:'mattress', price:189, oldPrice:299, badge:'sale', icon:'😴', rating:4.8, reviews:215, desc:'1000 individual pocket springs for targeted support and motion isolation. Breathable cotton cover. Suitable for all sleeper types.'},
+    { id:8, name:'Memory Foam Mattress', cat:'mattress', price:249, oldPrice:null, badge:'hot', icon:'😴', rating:4.9, reviews:178, desc:'Premium 4-layer memory foam mattress with cooling gel top layer. Contours to your body for the perfect night\'s sleep.'},
+    { id:9, name:'Orthopaedic Mattress', cat:'mattress', price:219, oldPrice:299, badge:'sale', icon:'😴', rating:4.7, reviews:94, desc:'Firm orthopaedic mattress designed for those with back problems. Extra lumbar support and hypoallergenic filling.'},
+    { id:10, name:'Grey Ottoman Bed', cat:'ottoman', price:399, oldPrice:549, badge:'sale', icon:'📦', rating:4.9, reviews:67, desc:'Stunning gas-lift ottoman bed with massive under-bed storage. Upholstered in premium grey fabric. Easy-lift mechanism.'},
+    { id:11, name:'Velvet Ottoman Storage Bed', cat:'ottoman', price:499, oldPrice:null, badge:'new', icon:'📦', rating:4.8, reviews:41, desc:'Luxurious velvet-finish ottoman bed in a range of jewel colours. Side-opening gas lift for easy access to storage below.'},
+    { id:12, name:'Classic Pine Bunk Bed', cat:'bunk', price:299, oldPrice:399, badge:'sale', icon:'🏗️', rating:4.7, reviews:89, desc:'Solid pine bunk bed with integrated ladder and safety rails. Ideal for children\'s rooms. Easy self-assembly.'},
+    { id:13, name:'Triple Bunk Bed with Desk', cat:'bunk', price:449, oldPrice:null, badge:'new', icon:'🏗️', rating:4.8, reviews:32, desc:'Innovative triple bunk bed with integrated study desk and shelving. Maximum use of vertical space for smaller rooms.'},
+    { id:14, name:'Luxury Sofa Bed', cat:'sofa', price:349, oldPrice:499, badge:'sale', icon:'🛋️', rating:4.6, reviews:58, desc:'Elegant sofa by day, comfortable double bed by night. Click-clack mechanism for easy conversion. Available in fabric and faux leather.'},
+    { id:15, name:'Chesterfield Sofa Bed', cat:'sofa', price:549, oldPrice:null, badge:'hot', icon:'🛋️', rating:4.9, reviews:23, desc:'Sophisticated Chesterfield-style sofa bed with button-tufted velvet upholstery. Folds out to a generous double bed.'},
+    { id:16, name:'Padded Fabric Headboard', cat:'headboard', price:79, oldPrice:119, badge:'sale', icon:'🖼️', rating:4.7, reviews:134, desc:'Thick padded headboard in a range of fabrics and colours. Easy wall-mount or strut-fix fitting. Universal sizing.'},
+    { id:17, name:'Crushed Velvet Headboard', cat:'headboard', price:119, oldPrice:null, badge:'new', icon:'🖼️', rating:4.8, reviews:67, desc:'Glamorous crushed velvet headboard available in rose gold, silver, champagne and deep teal. The centrepiece your bedroom deserves.'},
+  ];
+
+  let cart = [];
+  let currentProduct = null;
+  let selectedSize = 'Double (4ft 6)';
+  let activeFilter = 'all';
+
+  function renderProducts(list) {
+    const grid = document.getElementById('productGrid');
+    if (!list.length) { grid.innerHTML = '<p style="color:var(--gray);text-align:center;padding:3rem;grid-column:1/-1;">No products found in this category.</p>'; return; }
+    grid.innerHTML = list.map(p => `
+      <div class="product-card" onclick="openModal(${p.id})">
+        <div class="product-img">
+          ${p.badge ? `<span class="badge badge-${p.badge}">${p.badge==='sale'?'SALE':p.badge==='new'?'NEW':'🔥 HOT'}</span>` : ''}
+          <span>${p.icon}</span>
+        </div>
+        <div class="product-info">
+          <h3>${p.name}</h3>
+          <div class="product-meta">${'★'.repeat(Math.floor(p.rating))} ${p.rating} (${p.reviews} reviews)</div>
+          <div class="price-row">
+            <span class="price">£${p.price}</span>
+            ${p.oldPrice ? `<span class="price-old">£${p.oldPrice}</span>` : ''}
+          </div>
+          <button class="add-btn" onclick="event.stopPropagation();addToCart(${p.id})">Add to Cart</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function filterProducts(cat) {
+    activeFilter = cat;
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.toggle('active', b.textContent.toLowerCase().includes(cat) || (cat==='all' && b.textContent==='All Products'));
+    });
+    const list = cat === 'all' ? products : products.filter(p => p.cat === cat);
+    renderProducts(list);
+  }
+
+  function sortProducts(val) {
+    let list = activeFilter === 'all' ? [...products] : products.filter(p => p.cat === activeFilter);
+    if (val === 'price-asc') list.sort((a,b) => a.price - b.price);
+    else if (val === 'price-desc') list.sort((a,b) => b.price - a.price);
+    else if (val === 'rating') list.sort((a,b) => b.rating - a.rating);
+    renderProducts(list);
+  }
+
+  function openModal(id) {
+    currentProduct = products.find(p => p.id === id);
+    document.getElementById('modalImg').textContent = currentProduct.icon;
+    document.getElementById('modalTitle').textContent = currentProduct.name;
+    document.getElementById('modalMeta').textContent = `Category: ${currentProduct.cat.charAt(0).toUpperCase()+currentProduct.cat.slice(1)} Beds`;
+    document.getElementById('modalStars').textContent = '★'.repeat(Math.floor(currentProduct.rating)) + ` ${currentProduct.rating} (${currentProduct.reviews} reviews)`;
+    document.getElementById('modalPrice').textContent = `£${currentProduct.price}` + (currentProduct.oldPrice ? ` — was £${currentProduct.oldPrice}` : '');
+    document.getElementById('modalDesc').textContent = currentProduct.desc;
+    document.getElementById('productModal').classList.add('open');
+  }
+  function closeModal() { document.getElementById('productModal').classList.remove('open'); }
+  function selectSize(btn) {
+    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedSize = btn.textContent;
+  }
+  function addToCartFromModal() {
+    if (currentProduct) { addToCartItem(currentProduct, selectedSize); closeModal(); }
+  }
+  function addToCart(id) {
+    const p = products.find(x => x.id === id);
+    addToCartItem(p, 'Double (4ft 6)');
+  }
+  function addToCartItem(p, size) {
+    const existing = cart.find(i => i.id === p.id && i.size === size);
+    if (existing) existing.qty++;
+    else cart.push({...p, size, qty:1});
+    updateCart();
+    showToast(`${p.name} added to cart!`);
+  }
+  function removeFromCart(id, size) {
+    cart = cart.filter(i => !(i.id === id && i.size === size));
+    updateCart();
+  }
+  function updateCart() {
+    const count = cart.reduce((s,i) => s+i.qty, 0);
+    document.getElementById('cartCount').textContent = count;
+    const total = cart.reduce((s,i) => s+(i.price*i.qty), 0);
+    document.getElementById('cartTotal').textContent = `£${total}`;
+    const itemsEl = document.getElementById('cartItems');
+    const footerEl = document.getElementById('cartFooter');
+    if (!cart.length) {
+      itemsEl.innerHTML = '<div class="empty-cart"><span class="icon">🛏</span><p>Your cart is empty</p></div>';
+      footerEl.style.display = 'none';
+    } else {
+      itemsEl.innerHTML = cart.map(i => `
+        <div class="cart-item">
+          <div class="cart-item-img">${i.icon}</div>
+          <div class="cart-item-info">
+            <strong>${i.name}</strong>
+            <span>Size: ${i.size} × ${i.qty}</span>
+          </div>
+          <span class="cart-item-price">£${i.price * i.qty}</span>
+          <button class="remove-item" onclick="removeFromCart(${i.id},'${i.size}')">🗑</button>
+        </div>
+      `).join('');
+      footerEl.style.display = 'block';
+    }
+  }
+  function toggleCart() {
+    document.getElementById('cartSidebar').classList.toggle('open');
+    document.getElementById('cartOverlay').classList.toggle('open');
+  }
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+  function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-'+page).classList.add('active');
+    window.scrollTo(0, 0);
+    if (page === 'shop') renderProducts(products);
+  }
+
+  // Init shop
+  renderProducts(products);
+</script>
+</body>
+</html>
